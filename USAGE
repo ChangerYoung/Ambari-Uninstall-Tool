@@ -1,0 +1,22 @@
+1.在Ambari server上，执行
+    ```java
+    ambari-server stop
+    ambari-server reset
+    yum erase ambari-server -y
+    ```
+2.在ambari agent上执行
+    ```java
+    ambari-agent stop
+    yum erase ambari-agent  -y
+    ```
+3.在所有节点依次执行,
+    ```java
+    #清除ambari相关的rpm
+    ./Ambari-uninstall-ambari.sh
+    #清除hdp相关的rpm
+    ./Ambari-uninstall-hdp.sh
+    #清除创建的用户
+    ./Ambari-uninstall-deluser.sh
+    #清除残留文件夹(可能有遗漏)
+    ./Ambari-uninstall-deldir.sh
+    ```
